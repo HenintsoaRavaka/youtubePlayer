@@ -1,0 +1,41 @@
+body {
+    padding-top: 100px;
+    background-color: #f6f6f6 !important;
+}
+
+.form-container {
+    width: 325px;
+    margin: auto;
+    margin-right: 40px;
+}
+.btn-primary{
+    background: #008cd7 !important;
+}
+.credits {
+    border-top: 1px solid #ddd;
+    margin-top: 40px;
+    padding-top: 20px;
+}
+.image{
+    float: left;
+}
+.sub_container{
+    margin-top: 65px;
+}
+h2{
+    padding-top: 40px;
+    color: #337ab7 !important;
+}
+.container{
+    margin-top: -45px;
+}
+.alert-error{
+    color: #b94a48;
+    background-color: #f2dede;
+    border-color: #eed3d7;
+}
+.alert-success{
+    color: #16b90b;
+    background-color: #b5e8b7;
+    border-color: #b5e8b7;
+}

@@ -1,17 +1,33 @@
-<form (submit) = "createVideo()">
-		<div class="form-group">
-			<input type="text" class="form-control" name="title" [(ngModel)]="title">
-		</div>
-		<div class="form-group">
-			<input type="text" class="form-control" name="url" [(ngModel)]="url">
-		</div>
-		<div class="form-group">
-			<textarea class="form-control" rows="5" name="description" [(ngModel)]="description">
-			</textarea>
-		</div>
-		<input type="submit" class = "btn btn btn-success" value = "Enregistrer">
-</form>
 
-<video-detail *ngIf="selectedVideo" [video]="selectedVideo"></video-detail>
-<video-list (SelectVideo)="onSelectVideo($event)" [videos]="videos"></video-list>
+<div class="row">
+	<div class="col-md-10">
+		<h2>Générer votre playlist</h2>
+	</div>
+	<div class="col-md-2 logout">
+		<ul class="nav nav-tabs"><li><a routerLink="/logout" routerLinkActive="active">Logout</a></li></ul>
+	</div>
+</div>
 
+<div class="row">
+	<div class="col-md-6">
+		<video-list (SelectVideo)="onSelectVideo($event)" [videos]="videos"></video-list>
+	</div>
+	<div class="col-md-6">
+			<div class="recherche">
+				<form (submit)="recherche_video_youtube($event)">
+					<label for="title">Recherche : </label>
+					<input type="text" class="form-recherche" [(ngModel)]="title" name="title"/>
+					<input type="submit" class="btn btn-primary recherche-btn" value="Rechercher">
+				</form>
+			</div>
+			<div class="col-md-12 youtube_liste" *ngFor="let video_youtube of video_youtubes">
+				<hr>
+				<div class="row">
+					<div class="ycol-md-2"><img src="https://img.youtube.com/vi/{{video_youtube.id}}/0.jpg"></div>
+					<div class="col-md-8">{{video_youtube.title}}</div>
+					<div class="ycol-md-2"><a (click)="addPlayList($event)"><span class="glyphicon glyphicon glyphicon-plus"></span></a></div>
+				</div>
+				<hr>
+			</div>
+	</div>
+</div>

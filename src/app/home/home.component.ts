@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { UtilityService } from './../utility.service';
 import { VideoService } from './../video.service';
 import { Video } from './../video';
+import { SpinnerService } from 'angular-spinners';
 
 @Component({
   selector: 'app-home',
@@ -18,10 +19,11 @@ export class HomeComponent implements OnInit {
     url: String;
     description: String;
 
+    showSpinner: boolean = true;
+
     selectedVideo: Video;
 
    	constructor(
-	    private utility: UtilityService,
 	    private router: Router,
       private _videoService: VideoService
   	) {
@@ -29,13 +31,10 @@ export class HomeComponent implements OnInit {
      }
 
   	ngOnInit() {
-  		this.utility.isLogged().then((result: boolean) => {
-  		  if(!result){
-  		    this.router.navigate(['login']);
-  		  }
-  		});
       this._videoService.getVideos()
-      .subscribe(resVideoData => this.videos = resVideoData);
+      .subscribe(resVideoData => 
+        this.videos = resVideoData
+      );
   	}
 
     public onSelectVideo(video:any){

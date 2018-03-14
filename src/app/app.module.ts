@@ -4,6 +4,8 @@ import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { DragulaModule } from 'ng2-dragula/ng2-dragula';
+import { YoutubePlayerModule } from 'ng2-youtube-player';
+
 
 import { GrowlModule } from 'primeng/primeng'
 
@@ -18,6 +20,8 @@ import { RegisterComponent } from './register/register.component';
 import { LogoutComponent } from './logout/logout.component';
 import { NavComponent } from './nav/nav.component';
 import { VideoModifComponent } from './video-modif/video-modif.component';
+import { SpinnerComponent } from './spinner/spinner.component';
+
 
 
 @NgModule({
@@ -32,7 +36,8 @@ import { VideoModifComponent } from './video-modif/video-modif.component';
     RegisterComponent,
     LogoutComponent,
     NavComponent,
-    VideoModifComponent
+    VideoModifComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +45,8 @@ import { VideoModifComponent } from './video-modif/video-modif.component';
     HttpModule,
     FormsModule,
     GrowlModule,
-    DragulaModule
+    DragulaModule,
+    YoutubePlayerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

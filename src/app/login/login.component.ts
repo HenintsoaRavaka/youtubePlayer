@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
       this.utility.isLogged().then((result: boolean) => {
           if(result){
-            this.router.navigate(['home']);
+            this.router.navigate(['videos']);
           }
       });
   }
@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
           if(typeof (Storage) !== 'undefined') {
             sessionStorage.setItem('User',  JSON.stringify(user.email))
           }
-          this.router.navigate(['home']);
+          this.router.navigate(['videos']);
         }
         else{
           this.successMessage = "Adresse ou mot de passe invalide";

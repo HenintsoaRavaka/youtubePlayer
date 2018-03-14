@@ -1,0 +1,19 @@
+.elementStyle li{
+    padding: 12px 45px;
+    margin-bottom: 6px;
+    border-top: 2px solid #337ab7;
+    border-bottom: 1px solid gray;
+    list-style-type: none;
+    --width: 559px;
+    margin-left: -40px;
+}
+.elementStyle{
+    padding-top: 52px;
+    width: 515px;
+}
+table{
+     margin-left: 40px;
+}
+span{
+    padding: 10px;
+}

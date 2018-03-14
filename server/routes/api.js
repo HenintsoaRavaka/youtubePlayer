@@ -3,6 +3,7 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const Video = require('../models/video');
 const User = require('../models/user');
+const YouTube = require('youtube-node');
 
 const db = "mongodb://Ravaka:ravaka@ds012678.mlab.com:12678/videoplayer";
 mongoose.Promise = global.Promise;
@@ -139,6 +140,29 @@ router.post('/find_video', function(req, res){
         }else{
             res.json(video);
         }
+    });
+});
+
+router.post('/find_video_youtube', function(req, res){
+    var youTube = new YouTube();
+	youTube.setKey('AIzaSyB1OOSpTREs85WUMvIgJvLTZKye4BVsoFU');
+	youTube.search(req.body.title, 10, function(error, result) {
+    if (error) {
+        console.log(error);
+    }else{
+        var jsonData = JSON.parse(JSON.stringify(result, null, 2));
+        console.log(jsonData);
+        var videolist=[];
+        for(var i=0;i<jsonData.items.length; i++){
+            var newVideo = new Video();
+            newVideo.title = jsonData.items[i].snippet.title;
+            newVideo.url="https://www.youtube.com/embed/"+jsonData.items[i].id.videoId;
+            newVideo.img = jsonData.items[i].snippet.thumbnails.default.url;
+            newVideo.id = jsonData.items[i].id.videoId;
+            videolist.push(newVideo);
+        }
+        res.status(200).json(videolist);
+    }
     });
 });
 

@@ -1,34 +1,4 @@
 
-<style type="text/css" media="screen">
-	.form-recherche{
-		border: 2px solid #ced4da;
-    	border-radius: .25rem;
-    	height: 35px;
-    	width: 275px;
-	}
-	.recherche{
-		padding-top: 50px;
-	}
-	a{
-		float: right;
-	    margin-right: 593px;
-	    margin-top: -35px;
-	    cursor: pointer;
-
-	    background-color: #f44336;
-	    color: white !important;
-	    padding: 5px 13px;
-	    text-align: center;
-	    text-decoration: none;
-	    display: inline-block;
-	    height: 34px;
-	    border-radius: .25rem;
-	}
-	.recherche-btn{
-		margin-left: 7px !important;
-    	margin-top: -5px !important;
-	}
-</style>
 <div class="recherche">
 	<form (submit)="recherche_video($event)">
 	    <label for="title">Titre: </label>
@@ -37,10 +7,7 @@
 	</form>
 	<a (click)="addPlayList($event)" >+ Ajouter</a>
 </div>
-
 <video-list (SelectVideo)="onSelectVideo($event)" [videos]="videos"></video-list>
-<video-modif *ngIf="selectedVideo" [video]="selectedVideo"></video-modif>
 <video-detail *ngIf="selectedVideo" [video]="selectedVideo"></video-detail>
-
 
 
